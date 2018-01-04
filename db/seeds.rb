@@ -8,18 +8,18 @@
 
 
 users = User.create([
-	{email: "domstar1595@yahoo.com", password: "password"},
-	{email: "mdh.bing@gmail.com", password: "password"},
-	{email: "ehuggi@saic.edu", password: "password"},
-	{email: "osbornegabriel@gmail.com", password: "password"},
-	{email: "qymanab@gmail.com", password: "password"}
+	{email: "user1@yahoo.com", password: "password"},
+	{email: "user2.bing@gmail.com", password: "password"},
+	{email: "user3@saic.edu", password: "password"},
+	{email: "user4@gmail.com", password: "password"},
+	{email: "user5@gmail.com", password: "password"}
 	])
 
-dom = User.find_by(email: "domstar1595@yahoo.com")
-mark = User.find_by(email: "mdh.bing@gmail.com")
-kai = User.find_by(email: "ehuggi@saic.edu")
-gabe = User.find_by(email: "osbornegabriel@gmail.com")
-qymana = User.find_by(email: "qymanab@gmail.com")
+dom = User.find_by(email: "user1@yahoo.com")
+mark = User.find_by(email: "user2.bing@gmail.com")
+kai = User.find_by(email: "user3@saic.edu")
+gabe = User.find_by(email: "user4@gmail.com")
+qymana = User.find_by(email: "user5@gmail.com")
 
 pets = Pet.create([
 	{name: "Oz", animal_type: "cat", zipcode: 60647, owner: dom, bio: "the sweetest cuddle cat who loves to play fetch and bat you awake to feed him.", avatar: File.open((File.join(Rails.root,'/public/cat1.jpg')))},

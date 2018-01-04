@@ -3,6 +3,7 @@ module SessionsHelper
 	def session_id
 		session[:user_id]
 	end
+	
 	def current_user
 		if session_id
 			current_user ||= User.find(session_id)
@@ -16,4 +17,8 @@ module SessionsHelper
 	def authenticate!
 		redirect_to "/no_access" unless logged_in?
 	end
+
+	def admin?
+    current_user && current_user.email == ENV["ADMIN"]
+  end
 end

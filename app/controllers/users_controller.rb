@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if current_user.id == params[:id].to_i
+		if current_user.id == params[:id].to_i || admin?
 			@user = User.find_by(id: params[:id])
 		else
 			redirect_to "/no_access"
