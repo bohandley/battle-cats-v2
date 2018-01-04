@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: battle_cats_v2_development
+  database: battle-cats_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: battle_cats_v2_production
-  username: battle_cats_v2
-  password: <%= ENV['BATTLE_CATS_V2_DATABASE_PASSWORD'] %>
+  database: battle-cats_production
+  username: battle-cats
+  password: <%= ENV['BATTLE-CATS_DATABASE_PASSWORD'] %>
