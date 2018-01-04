@@ -11,6 +11,7 @@ class Pet < ApplicationRecord
 	belongs_to :owner, class_name: "User"
 
 	validates :name, :animal_type, :owner_id, presence: true
+  validate :positivity
 
   def win_count
     wins = 0
@@ -24,5 +25,29 @@ class Pet < ApplicationRecord
   
   def cuteness
     self.votes.count + 2
+  end
+
+  private
+
+  def positivity
+    not_positive = [
+      "bitch",
+      "fuck",
+      "cunt",
+      "dick",
+      "wienermobile",
+      "asshole",
+      "butthole",
+      "chodemaster",
+      "shit",
+      "piss",
+      "vinegar"
+    ]
+
+    not_positive.each do |curse_word|
+      if name.downcase == curse_word
+        errors.add(:name, "can't be a curse word. Let's check our language, friend.")
+      end
+    end
   end
 end
