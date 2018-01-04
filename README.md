@@ -6,11 +6,11 @@ Play here! [https://battle-cats-dbc-v2.herokuapp.com/](https://battle-cats-dbc-v
 Not interested in creating an account? Try out one of our test cats!
 
 Play as: 
- - Oz or Basil: email: "user1@yahoo.com"       password: "password"
- - Lambchop or Luna: email: "user2.bing@gmail.com"  password: "password"
- - Spooky: email: "user3@saic.edu"        password: "password"
- - Sir Fluffy Claws: email: "user4@gmail.com"       password: "password"
- - Humphrey: email: "user5@gmail.com"       password: "password"
+ - Oz or Basil - email: "user1@yahoo.com"       password: "password"
+ - Lambchop or Luna - email: "user2.bing@gmail.com"  password: "password"
+ - Spooky: email - "user3@saic.edu"        password: "password"
+ - Sir Fluffy Claws - email: "user4@gmail.com"       password: "password"
+ - Humphrey: email - "user5@gmail.com"       password: "password"
  
 Battle Cats Version 2 is here. The updated version fixes security vulnerabilities, allows for more positivity with pet name validations, and provides secure admin features. 
 
