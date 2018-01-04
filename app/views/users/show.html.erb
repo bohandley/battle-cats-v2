@@ -3,12 +3,10 @@
 </h1>
 
 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-          How to Play Battle Cats
-</button>
+  Gameplay Instructions
+</button> 
 
-<br>
 
-<%= button_to 'Delete User', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning btn-sm" %>
 <%= button_to "Create A New Pet", new_user_pet_path(@user), method: :get, :class => "btn btn-primary btn-lg new-pet-button" %>
 
 <div class="pet-list stats-list">
@@ -71,6 +69,7 @@
     </ul>
   <% end %>
 </div>
+<p>Delete your account?<%= button_to 'Delete User', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning btn-sm" %></p>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
