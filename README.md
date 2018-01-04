@@ -1,4 +1,6 @@
-# Battle Cats
+# Battle Cats v2
+
+Battle Cats Version 2 is here. The updated version fixes security vulnerabilities, allows for more positivity with pet name validations, and provides secure admin features. 
 
 ### Battle Cat Developers:
 
@@ -6,10 +8,12 @@
 * Saham Khozestani - @sahamak
 * Dominique Goncalves - @dgonca
 * Matthew Mayerle - @mwmayerle
+
+Check out the original repository [here](https://github.com/dgonca/battle-cats)
  
 Battle Cats is an interactive app for pet lovers who want to show off their pets and battle the cutest pets in their spare time. Users can vote on the cuteness of other pets and earn trophies over time as they win battles.
  
-##Installation
+## Installation
 
 To run the code on your local machine, Ruby, Rails, and the ImageMagick gem are required. 
 
