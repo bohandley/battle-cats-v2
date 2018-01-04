@@ -15,6 +15,7 @@ var movePetPicture = function() {
     $("#left-pet").animate({bottom: "0px"}, 40);
   })
 }
+
 var score;
 var clicks = 0;
 var fightButtonListener = function() {
