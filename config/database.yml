@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: battle-cats_production
-  username: battle-cats
-  password: <%= ENV['BATTLE-CATS_DATABASE_PASSWORD'] %>
+  database: battle_cats_v2_production
+  username: battle_cats_v2
+  password: <%= ENV['BATTLE_CATS_V2_DATABASE_PASSWORD'] %>
