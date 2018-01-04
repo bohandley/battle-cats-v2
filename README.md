@@ -3,7 +3,13 @@
 Battle Cats is an interactive app for pet lovers who want to show off their pets and battle the cutest pets in their spare time. Users can vote on the cuteness of other pets and earn trophies over time as they win battles.
 
 Play here! [https://battle-cats-dbc-v2.herokuapp.com/](https://battle-cats-dbc-v2.herokuapp.com/)
-
+Not interested in creating an account? Try out one of our test cats!
+ - email: "user1@yahoo.com"       password: "password"
+ - email: "user2.bing@gmail.com"  password: "password"
+ - email: "user3@saic.edu"        password: "password"
+ - email: "user4@gmail.com"       password: "password"
+ - email: "user5@gmail.com"       password: "password"
+ 
 Battle Cats Version 2 is here. The updated version fixes security vulnerabilities, allows for more positivity with pet name validations, and provides secure admin features. 
 
 ### Battle Cat Developers:
