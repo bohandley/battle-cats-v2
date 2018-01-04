@@ -1,0 +1,33 @@
+ <%= bootstrap_form_for :user, url: "/users", html: {class: "form-signin"} do |f| %>
+	<h2 class="form-signup-heading">New User Registration</h2>
+	<% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	      <ul>
+	      <% @user.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	 <% end %>
+
+	<div class="field">
+		<%#= f.label :email, label: "Email", label_class: "sr-only" %>
+		<%= f.email_field :email, control_class: "form-control email-input" %>
+	</div>
+	
+	<div class="field">
+		<%#= f.label :password, label: "Password", label_class: "sr-only" %>
+		<%= f.password_field :password, control_class: "form-control password-input" %>
+	</div>
+
+	<div class="field">
+		<%#= f.label :password, label: "Password", label_class: "sr-only" %>
+		<%= f.password_field :password_confirmation, control_class: "form-control password-input" %>
+	</div>
+	
+	<div class="actions">
+		<%= f.submit "Register", class: "btn btn-lg btn-primary btn-block" %>
+	</div>
+<% end %>

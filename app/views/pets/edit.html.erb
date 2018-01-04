@@ -1,0 +1,35 @@
+<%= bootstrap_form_for :pet, url: "/users/#{current_user.id}/pets/#{@pet.id}", method: :put, html: {class: "form-signin"} do |f| %>
+  <h2 class="form-signin-heading">Edit Pet Details</h2>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this user from being saved:</h2>
+    </div>
+
+    <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.select :animal_type, ['dog', 'cat', 'bird', 'snake', 'fish', 'rabbit', 'other'], :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :bio, :class => "form-control", cols: 10, rows: 10 %>
+  </div>
+  <div class="field">
+    <%= f.text_field :zipcode, :class => "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.file_field :avatar, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.submit "Edit Pet Details", class: "btn btn-success btn-lg" %>
+  </div>
+
+<% end %>

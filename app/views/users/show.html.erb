@@ -1,0 +1,99 @@
+<h1><%= @user.user_name %>
+<small class="text-muted">Your profile page</small>
+</h1>
+
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+          How to Play Battle Cats
+</button>
+
+<br>
+
+<%= button_to 'Delete User', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning btn-sm" %>
+<%= button_to "Create A New Pet", new_user_pet_path(@user), method: :get, :class => "btn btn-primary btn-lg new-pet-button" %>
+
+<div class="pet-list stats-list">
+  <ul class="list-group pet-list">
+  <h2>Your Pets:</h2>
+  <% @user.pets.each do |pet| %>
+    <li class="list-group-item list-group-item-action pet-list"><a href="/users/<%= @user.id %>/pets/<%= pet.id %>" ><%= pet.name %></a> | <%= link_to 'Delete Pet', pet, method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to 'Edit Pet',"/users/#{current_user.id}/pets/#{pet.id}/edit" %> </li>
+  <% end %>
+</ul>
+</div>
+
+<div class="incomplete-list stats-list">
+  <p class="h3">Incomplete Battles - Click to Join!</p>
+  <% @user.pets.each do |pet| %>
+    <h6 class="list-headers"><%= pet.name %>'s Incomplete Battles</h6 class="list-headers">
+    <ul class="list-group incomplete">
+    <% pet.battles.each do |battle| %>
+      <% if battle.pending_battle? && battle.user_not_played == pet %>
+          <li class="list-group-item"><%= link_to "#{battle.pet_battles[0].pet.name} vs #{battle.pet_battles[1].pet.name}", battle_path(battle) %></li>   
+      <% end %>
+    <% end %>
+    </ul>
+  <% end %> 
+</div>
+
+<div class="completed-list stats-list">
+  <p class="h3">Completed Battles</p>
+  <% @user.pets.each do |pet| %>
+  <ul class="list-group">
+    <h6 class="list-headers"><%= pet.name %>'s Complete Battles</h6 class="list-headers">
+    <% pet.battles.each do |battle| %>
+      <% if !battle.pending_battle? %>
+        <% if battle.has_winner? %>
+        <% battle.set_winner %>
+        <li class="list-group-item"><%= battle.pet_battles[0].pet.name %> <%= battle.pet_battles[0].button_score %> vs <%= battle.pet_battles[1].pet.name %> <%= battle.pet_battles[1].button_score %>, winner = <strong>
+            <%= battle.winner.name %>
+            </strong></li>  
+        <% elsif battle.is_tie? %>
+        <li class="list-group-item"><%= battle.pet_battles[0].pet.name %> <%= battle.pet_battles[0].button_score %> vs <%= battle.pet_battles[1].pet.name %> <%= battle.pet_battles[1].button_score %>, <%= battle.tie %></li>
+        <% end %>
+      <% end %>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+
+<div class="waiting-list stats-list">
+  <p class="h3">Waiting...</p>
+  <% @user.pets.each do |pet| %>
+    <h6 class="list-headers"><%= pet.name %>'s In Progress Battles</h6 class="list-headers">
+    <ul class="list-group">
+    <% pet.battles.each do |battle| %>
+      <% if battle.pending_battle? && battle.user_not_played != pet %>
+          <li class="list-group-item">
+            <%= battle.pet_battles[0].pet.name %> vs <%= battle.pet_battles[1].pet.name %>, waiting for other player
+          </li>
+      <% end %>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Battle Cats Instructions:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <h2>Battle Instructions:</h2> -->
+        <p>How to Play BattleCats: First, create a pet. Next, navigate to the All Pets section. After reaching the all pets section, choose a pet to view. On that pet's viewing page, click vote to increase that pet's cuteness or click battle to battle that pet. If you click battle, choose a pet of your own pet to battle with. After choosing your pet, navigate to the battle screen. Click start to battle! For more information on how to battle, click instructions on the battle page.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,94 @@
+/*.circular-landscape {
+	margin-top: 20px;
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 3px solid lightgray;
+}*/
+
+/*.small-circle{
+	border: 3px solid lightgray;
+}*/
+
+.avatar-img{
+	/*border: 3px solid lightgray;*/
+	/*margin-top: 20px;*/
+	display: inline-block;
+	position: relative;
+	width: 90px;
+	height: auto;
+	overflow: hidden;
+	/*border-radius: 50%;*/
+	border: 3px solid lightgray;
+}
+
+/*.small-circle {
+  width: 90px;
+  height: 90px;
+}
+
+.avatar-img  {
+	width: auto;
+  height: 100%;
+}
+*/
+
+.big-image {
+  width: 150px;
+  height: auto;
+
+  /*margin-left: -30px;*/
+}
+
+.card-header {
+	text-transform: capitalize;
+}
+
+.pet-show-card {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+.pet-show-card h1, h2, h3, h4, h5, h6, button {
+	text-transform: capitalize;
+}
+
+.stats-div, .buttons-div{
+	margin: 0 auto;
+	width: 100%;
+}
+
+.stats, .action-buttons {
+	display: inline-block;
+	width: 40%;
+	border-bottom: 2px solid black;
+}
+
+.action-buttons {
+	border: none;
+  width: auto;
+	margin-bottom: 10px;
+  box-shadow: -2px 5px 5px 1px rgba(219,219,219,1);
+}
+
+.top-part-of-card {
+	border-bottom: 1px solid lightgray;
+}
+
+.bio-header{
+	padding-top: 5px;
+}
+
+.trophy-items{
+	width: 50px;
+	
+}
+
+
+
+

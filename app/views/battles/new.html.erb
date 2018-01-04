@@ -1,0 +1,31 @@
+<div class="card bg-light border-primary mb-3">
+  <div class="card-header border-primary ">New Battle!</div>
+
+
+  <% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error]%>
+  </div>
+  <% end %>
+
+
+  <%= bootstrap_form_for :battle, url: "/battles", html: {class: "form-signin"} do |f| %>
+  <div class="display-4">Pick Your Pet to Battle With!!</div>
+    <%= f.hidden_field 'pet_to_battle', value: @pet_to_battle.id %>
+    <div class="field battle-pick-pet-list list-group">
+    <% @user_pets.each do |pet| %>
+      <div class="battle-pick-pet-list-item list-group-item">
+      <div class="circular-landscape small-circle pick-ur-pet-items">
+        <%= image_tag pet.avatar.url(:thumb), class: "avatar-img" %>
+      </div>
+      <span class="battle-new-pet-name pick-ur-pet-items">
+      <%= radio_button_tag(:pet, "#{pet.id}") %> <%= pet.name %>
+      </span>
+      </div>
+    <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Battle!", class: "disabled btn btn-lg btn-primary btn-block" %>
+    </div>
+  <% end %>
+</div>

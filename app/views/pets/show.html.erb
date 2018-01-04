@@ -1,0 +1,73 @@
+<!-- <img src="">  profile pic for pet-->
+<!-- <div class="show-title text-center">
+	<h1><%= @pet.name %></h1>
+</div> -->
+
+
+  <div class="card bg-light border-primary mb-3 box-shadow-div">
+  	<div class="card-header border-primary "><%= @pet.animal_type %></div>
+		<div class="pet-show-card">
+	 		<div class="top-part-of-card">
+				<div class="circular-landscape">
+			  		<img class="avatar-img big-image" src=<%= @pet.avatar.url(:medium) %>>
+			  	</div>
+			  	<div class="pet-show-card-body">
+				    <h3 class="pet-show-card-title"><%= @pet.name %></h3>
+					<div class="stats-div">
+					    <p class="show-card-c stats">Cuteness: <%= @pet.cuteness %></p>
+					    <p class="show-card-w stats">Wins: <%= @pet.win_count %></p>
+				    </div>
+				    <div class="buttons-div">
+				    	<% if @pet.owner_id == current_user.id %>
+				    	<%= link_to "Vote", "/pets/#{@pet.id}/votes", method: :put, remote: true, class: "vote-button disabled btn btn-success action-buttons" %>
+				    		<%= link_to "Battle #{@pet.name}", {controller: :battles, action: :new, :pet => @pet.id},  class: "disabled btn btn-warning action-buttons" %>
+				    	<% else %>
+
+				    		<% if not_voted_already?(@pet.id) %>
+				    			<%= link_to "Vote", "/pets/#{@pet.id}/votes", method: :put, remote: true, class: "vote-button btn btn-success action-buttons" %>
+				    		<% else %>
+				    			<%= link_to "Vote", "/pets/#{@pet.id}/votes", method: :put, remote: true, class: "vote-button disabled btn btn-success action-buttons" %>
+				    		<% end %>
+				    		<% if current_user.pets.count == 0 %>
+				    			<%= link_to "Battle #{@pet.name}", {controller: :battles, action: :new, :pet => @pet.id},  class: "disabled btn btn-warning action-buttons"  %>
+				    		<% else %>
+				    			<%= link_to "Battle #{@pet.name}", {controller: :battles, action: :new, :pet => @pet.id},  class: "btn btn-warning action-buttons"  %>
+				    		<% end %>
+				    	<% end %>
+				    </div>
+				</div>
+			</div>
+
+		<h5 class="bio-header"><%= @pet.name %>'s Bio</h5>
+	    <p class="pet-show-card-bio"><%= @pet.bio %></p>
+
+	    <a href="/pets" class="btn btn-primary">Back to Map</a>
+
+	    <h6><%= @pet.name %>'s Trophies</h6>
+	    <% if @pet.win_count >= 2 && @pet.win_count < 5 %>
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/giphy.gif" class="trophy-items">
+	    <% elsif @pet.win_count  > 4 && @pet.win_count < 8 %>
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/giphy.gif" class="trophy-items">
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/adventuretime.gif" class="trophy-items">
+	    <% elsif @pet.win_count > 7 && @pet.win_count < 11 %>
+	   		<img src="https://storageforbattlecats.s3.amazonaws.com/public/giphy.gif" class="trophy-items">
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/adventuretime.gif" class="trophy-items">
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/cat.gif" class="trophy-items">
+	    <% elsif @pet.win_count > 10 %>
+			<img src="https://storageforbattlecats.s3.amazonaws.com/public/giphy.gif" class="trophy-items">
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/adventuretime.gif" class="trophy-items">
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/cat.gif" class="trophy-items">
+	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/pizza.gif" class="trophy-items">
+		<% else %>
+			<img src="https://storageforbattlecats.s3.amazonaws.com/public/heart.gif" class="trophy-items">
+	    <% end %>
+	  </div>
+	</div>
+</div>
+
+
+
+
+
+
+
