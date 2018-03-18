@@ -27,34 +27,35 @@ class BattlesController < ApplicationController
     
     if @battle.save && @current_user_battle.save && @opponent_battle.save
       # send email to the opponent to get into battle
-      p"*****************************"
-      p "Sending email to opponent"
-      p @opponent_owner.email
-      UserBattleEmailMailer.join_battle(@opponent_owner,@opponent_pet, @pet).deliver
-      p"******************************"
-      redirect_to battle_path(@battle)
+      # p"*****************************"
+      # p "Sending email to opponent"
+      # p @opponent_owner.email
+      # UserBattleEmailMailer.join_battle(@opponent_owner, @opponent_pet, @pet).deliver
+      # redirect_to battle_path(@battle)
     else
 
-    if params[:pet] == nil
-      @pet_to_battle = Pet.find(params[:battle][:pet_to_battle])
-      @user = User.find(session[:user_id])
-      @user_pets = @user.pets.all
-      flash[:error] = "You must select one of your pets to battle with!"
-      render 'new'
-    else
-      @battle = Battle.create()
-      @current_user_battle = PetBattle.create(pet_id: params[:pet], battle: @battle)
-      @opponent_battle = PetBattle.create(pet_id: params[:battle][:pet_to_battle], battle: @battle)
-    end
+      if params[:pet] == nil
+        @pet_to_battle = Pet.find(params[:battle][:pet_to_battle])
+        @user = User.find(session[:user_id])
+        @user_pets = @user.pets.all
+        flash[:error] = "You must select one of your pets to battle with!"
+        render 'new'
+      else
+        @battle = Battle.create()
+        @current_user_battle = PetBattle.create(pet_id: params[:pet], battle: @battle)
+        @opponent_battle = PetBattle.create(pet_id: params[:battle][:pet_to_battle], battle: @battle)
+      end
+      
       if @battle.save && @current_user_battle.save && @opponent_battle.save
-        p"*****************************"
-        p "Sending email to opponent"
-        p @opponent_owner.email
-        UserBattleEmailMailer.join_battle(@opponent_owner,@opponent_pet, @pet).deliver
-        redirect_to battle_path(@battle)
+        # p"*****************************"
+        # p "Sending email to opponent"
+        # p @opponent_owner.email
+        # UserBattleEmailMailer.join_battle(@opponent_owner, @opponent_pet, @pet).deliver
+        # redirect_to battle_path(@battle)
       else
         render 'new'
       end
+
     end
   end
 
