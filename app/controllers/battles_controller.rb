@@ -31,7 +31,7 @@ class BattlesController < ApplicationController
       # p "Sending email to opponent"
       # p @opponent_owner.email
       # UserBattleEmailMailer.join_battle(@opponent_owner, @opponent_pet, @pet).deliver
-      # redirect_to battle_path(@battle)
+      redirect_to battle_path(@battle)
     else
 
       if params[:pet] == nil
@@ -51,7 +51,7 @@ class BattlesController < ApplicationController
         # p "Sending email to opponent"
         # p @opponent_owner.email
         # UserBattleEmailMailer.join_battle(@opponent_owner, @opponent_pet, @pet).deliver
-        # redirect_to battle_path(@battle)
+        redirect_to battle_path(@battle)
       else
         render 'new'
       end
