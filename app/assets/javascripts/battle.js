@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $("#redirect-to-profile").hide();
   fightButtonListener();
   movePetPicture();
 });
@@ -30,10 +29,8 @@ $("#fight-button").one("click", function(){
 
    var hideSmashButton = function() {
      $("#smash-button").hide();
-     $("#redirect-to-profile").show();
+     $("#redirect-to-profile").removeClass("hidden");
      sendPromise(clicks);
-
-
    };
 
    setTimeout(hideSmashButton, 4000);
