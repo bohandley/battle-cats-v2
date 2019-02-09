@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.4.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -35,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap_form'
 gem 'simplecov', '~> 0.8.2', :require => false, :group => :test
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip", "~> 6.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #rails 12
@@ -43,7 +44,7 @@ gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
