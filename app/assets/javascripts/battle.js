@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  console.log("hello")
   $("#redirect-to-profile").hide();
   fightButtonListener();
   movePetPicture();

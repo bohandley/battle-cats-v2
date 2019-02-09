@@ -14,6 +14,7 @@ class PetsController < ApplicationController
 
   def new
     authenticate!
+    puts "test"
     @user = User.find_by(id: params[:user_id])
     @pet = Pet.new
   end
