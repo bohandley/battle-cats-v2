@@ -69,6 +69,10 @@ body {
 /*  background-color: lightgray;*/
 }
 
+label.custom-file-label {
+  display: none;
+}
+
 @media (max-width: 350px){
   .nav-foot-link {
     font-size: .8em;

@@ -13,7 +13,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 #add AWS sdk 
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap_form'
+gem "bootstrap_form", ">= 4.1.0"
 gem 'simplecov', '~> 0.8.2', :require => false, :group => :test
 gem "paperclip", "~> 6.0.0"
 # Use Capistrano for deployment
