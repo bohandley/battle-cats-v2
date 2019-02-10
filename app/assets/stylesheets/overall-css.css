@@ -70,6 +70,18 @@ label.custom-file-label {
   display: none;
 }
 
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.bg-light {
+  background-color: #f8f9fa
+}
+
 @media (max-width: 350px){
   .nav-foot-link {
     font-size: .8em;
