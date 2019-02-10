@@ -8,66 +8,83 @@
 
 
 <%= button_to "Create A New Pet", new_user_pet_path(@user), method: :get, :class => "btn btn-primary btn-lg new-pet-button" %>
+<div class="container" id="stats-list-container">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#pet-list" data-toggle="tab">Pets</a>
+    </li>
+    <li>
+      <a href="#incomplete-list" data-toggle="tab">Incomplete</a>
+    </li>
+    <li>
+      <a href="#completed-list" data-toggle="tab">Completed</a>
+    </li>
+    <li>
+      <a href="#waiting-list" data-toggle="tab">Waiting</a>
+    </li>
+  </ul>
 
-<div class="pet-list stats-list">
-  <ul class="list-group pet-list">
-  <h2>Your Pets:</h2>
-  <% @user.pets.each do |pet| %>
-    <li class="list-group-item list-group-item-action pet-list"><a href="/users/<%= @user.id %>/pets/<%= pet.id %>" ><%= pet.name %></a> | <%= link_to 'Delete Pet', pet, method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to 'Edit Pet',"/users/#{current_user.id}/pets/#{pet.id}/edit" %> </li>
-  <% end %>
-</ul>
-</div>
-
-<div class="incomplete-list stats-list">
-  <p class="h3">Incomplete Battles - Click to Join!</p>
-  <% @user.pets.each do |pet| %>
-    <h6 class="list-headers"><%= pet.name %>'s Incomplete Battles</h6 class="list-headers">
-    <ul class="list-group incomplete">
-    <% pet.battles.each do |battle| %>
-      <% if battle.pending_battle? && battle.user_not_played == pet %>
-          <li class="list-group-item"><%= link_to "#{battle.pet_battles[0].pet.name} vs #{battle.pet_battles[1].pet.name}", battle_path(battle) %></li>   
+  <div class="tab-content clearfix">
+    <div class="pet-list stats-list tab-pane active" id="pet-list">
+      <ul class="list-group pet-list">
+      <h2>Your Pets:</h2>
+      <% @user.pets.each do |pet| %>
+        <li class="list-group-item list-group-item-action pet-list"><a href="/users/<%= @user.id %>/pets/<%= pet.id %>" ><%= pet.name %></a> | <%= link_to 'Delete Pet', pet, method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to 'Edit Pet',"/users/#{current_user.id}/pets/#{pet.id}/edit" %> </li>
       <% end %>
-    <% end %>
-    </ul>
-  <% end %> 
-</div>
+      </ul>
+    </div>
 
-<div class="completed-list stats-list">
-  <p class="h3">Completed Battles</p>
-  <% @user.pets.each do |pet| %>
-  <ul class="list-group">
-    <h6 class="list-headers"><%= pet.name %>'s Complete Battles</h6 class="list-headers">
-    <% pet.battles.each do |battle| %>
-      <% if !battle.pending_battle? %>
-        <% if battle.has_winner? %>
-        <% battle.set_winner %>
-        <li class="list-group-item"><%= battle.pet_battles[0].pet.name %> <%= battle.pet_battles[0].button_score %> vs <%= battle.pet_battles[1].pet.name %> <%= battle.pet_battles[1].button_score %>, winner = <strong>
-            <%= battle.winner.name %>
-            </strong></li>  
-        <% elsif battle.is_tie? %>
-        <li class="list-group-item"><%= battle.pet_battles[0].pet.name %> <%= battle.pet_battles[0].button_score %> vs <%= battle.pet_battles[1].pet.name %> <%= battle.pet_battles[1].button_score %>, <%= battle.tie %></li>
+    <div class="incomplete-list stats-list tab-pane" id="incomplete-list">
+      <p class="h3">Incomplete Battles - Click to Join!</p>
+      <% @user.pets.each do |pet| %>
+        <h6 class="list-headers"><%= pet.name %>'s Incomplete Battles</h6 class="list-headers">
+        <ul class="list-group incomplete">
+        <% pet.battles.each do |battle| %>
+          <% if battle.pending_battle? && battle.user_not_played == pet %>
+              <li class="list-group-item"><%= link_to "#{battle.pet_battles[0].pet.name} vs #{battle.pet_battles[1].pet.name}", battle_path(battle) %></li>   
+          <% end %>
         <% end %>
-      <% end %>
-    <% end %>
-    </ul>
-  <% end %>
-</div>
+        </ul>
+      <% end %> 
+    </div>
 
-
-<div class="waiting-list stats-list">
-  <p class="h3">Waiting...</p>
-  <% @user.pets.each do |pet| %>
-    <h6 class="list-headers"><%= pet.name %>'s In Progress Battles</h6 class="list-headers">
-    <ul class="list-group">
-    <% pet.battles.each do |battle| %>
-      <% if battle.pending_battle? && battle.user_not_played != pet %>
-          <li class="list-group-item">
-            <%= battle.pet_battles[0].pet.name %> vs <%= battle.pet_battles[1].pet.name %>, waiting for other player
-          </li>
+    <div class="completed-list stats-list tab-pane" id="completed-list">
+      <p class="h3">Completed Battles</p>
+      <% @user.pets.each do |pet| %>
+      <ul class="list-group">
+        <h6 class="list-headers"><%= pet.name %>'s Complete Battles</h6 class="list-headers">
+        <% pet.battles.each do |battle| %>
+          <% if !battle.pending_battle? %>
+            <% if battle.has_winner? %>
+            <% battle.set_winner %>
+            <li class="list-group-item"><%= battle.pet_battles[0].pet.name %> <%= battle.pet_battles[0].button_score %> vs <%= battle.pet_battles[1].pet.name %> <%= battle.pet_battles[1].button_score %>, winner = <strong>
+                <%= battle.winner.name %>
+                </strong></li>  
+            <% elsif battle.is_tie? %>
+            <li class="list-group-item"><%= battle.pet_battles[0].pet.name %> <%= battle.pet_battles[0].button_score %> vs <%= battle.pet_battles[1].pet.name %> <%= battle.pet_battles[1].button_score %>, <%= battle.tie %></li>
+            <% end %>
+          <% end %>
+        <% end %>
+        </ul>
       <% end %>
-    <% end %>
-    </ul>
-  <% end %>
+    </div>
+
+    <div class="waiting-list stats-list tab-pane" id="waiting-list">
+      <p class="h3">Waiting...</p>
+      <% @user.pets.each do |pet| %>
+        <h6 class="list-headers"><%= pet.name %>'s In Progress Battles</h6 class="list-headers">
+        <ul class="list-group">
+        <% pet.battles.each do |battle| %>
+          <% if battle.pending_battle? && battle.user_not_played != pet %>
+              <li class="list-group-item">
+                <%= battle.pet_battles[0].pet.name %> vs <%= battle.pet_battles[1].pet.name %>, waiting for other player
+              </li>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>
 <p>Delete your account?<%= button_to 'Delete User', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning btn-sm" %></p>
 
