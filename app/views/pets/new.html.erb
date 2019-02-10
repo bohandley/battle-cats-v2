@@ -1,4 +1,4 @@
-<%= bootstrap_form_with model: [@user, @user.pets.build], html: {class: "form-signin", :multipart => true} do |f| %>
+<%= bootstrap_form_for ([@user, @user.pets.build]), html: {class: "form-signin", :multipart => true} do |f| %>
   <h2 class="form-signin-heading">Add a Pet</h2>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
