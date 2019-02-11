@@ -82,15 +82,6 @@ label.custom-file-label {
   background-color: #f8f9fa
 }
 
-/*#stats-list-container .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
-
-#stats-list-container .nav-tabs > li > a {
-  border-radius: 0;
-}*/
 @media (max-width: 350px){
   .nav-foot-link {
     font-size: .8em;

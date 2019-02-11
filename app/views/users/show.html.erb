@@ -2,14 +2,14 @@
 <small class="text-muted">Your profile page</small>
 </h1>
 
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-  Gameplay Instructions
-</button> 
+
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+    Gameplay Instructions
+  </button>  
 
 
-<%= button_to "Create A New Pet", new_user_pet_path(@user), method: :get, :class => "btn btn-primary btn-lg new-pet-button" %>
-<div class="container" id="stats-list-container">
-  <ul class="nav nav-tabs">
+<div id="stats-list-container">
+  <ul class="nav nav-pills">
     <li class="active">
       <a href="#pet-list" data-toggle="tab">Pets</a>
     </li>
@@ -26,6 +26,9 @@
 
   <div class="tab-content clearfix">
     <div class="pet-list stats-list tab-pane active" id="pet-list">
+      <div>
+        <%= button_to "Create A New Pet", new_user_pet_path(@user), method: :get, :class => "btn btn-primary btn-lg new-pet-button" %>  
+      </div>
       <ul class="list-group pet-list">
       <h2>Your Pets:</h2>
       <% @user.pets.each do |pet| %>

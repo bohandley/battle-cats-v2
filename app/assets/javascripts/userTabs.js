@@ -3,17 +3,14 @@ $(document).ready(function() {
 });
 
 function tabSwitcher(){
-    $(".nav-tabs a").on("click", function(e){
+    $(".nav-pills a").on("click", function(e){
         e.preventDefault();
-        var $this = $(this);
 
-        // remove active class from tabs and viewer
-        $(".nav-tabs li.active").removeClass("active");
-        $(".tab-pane.active").removeClass("active");
+        $(".nav-pills li.active").removeClass("active");
+        
+        var $this   = $(this),
+            id      = $this.attr("href");
 
-        // add active class to li and container
-        var id = $this.attr("href");
         $this.parent().addClass("active");
-        $(".tab-pane"+id).addClass("active");
     });
 }
