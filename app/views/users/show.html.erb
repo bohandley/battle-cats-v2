@@ -11,16 +11,16 @@
 <div id="stats-list-container">
   <ul class="nav nav-pills">
     <li class="active">
-      <a href="#pet-list" data-toggle="tab">Pets</a>
+      <a href="#pet-list" data-toggle="tab">Your Pets</a>
     </li>
     <li>
-      <a href="#incomplete-list" data-toggle="tab">Incomplete</a>
+      <a href="#incomplete-list" data-toggle="tab">Incomplete Battles</a>
     </li>
     <li>
-      <a href="#completed-list" data-toggle="tab">Completed</a>
+      <a href="#completed-list" data-toggle="tab">Completed Battles</a>
     </li>
     <li>
-      <a href="#waiting-list" data-toggle="tab">Waiting</a>
+      <a href="#waiting-list" data-toggle="tab">Pending Battles</a>
     </li>
   </ul>
 
@@ -75,7 +75,7 @@
     <div class="waiting-list stats-list tab-pane" id="waiting-list">
       <p class="h3">Waiting...</p>
       <% @user.pets.each do |pet| %>
-        <h6 class="list-headers"><%= pet.name %>'s In Progress Battles</h6 class="list-headers">
+        <h6 class="list-headers"><%= pet.name %>'s Battles in Progress</h6 class="list-headers">
         <ul class="list-group">
         <% pet.battles.each do |battle| %>
           <% if battle.pending_battle? && battle.user_not_played != pet %>
