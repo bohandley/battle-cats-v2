@@ -5,14 +5,14 @@
   <% @pets.each do |pet| %>
     <pet>   
       <!-- <span> -->
-        <!-- <a href="/pets/<%= pet.id %>"> -->
+        <a class="" href="/pets/<%= pet.id %>">
           <%= image_tag pet.avatar.url(:thumb), class: "pet-img"%>
-        <!-- </a>      -->
+        </a>     
       <!-- </span> -->
       <!-- <span> -->
-        <!-- <h3 class="pet-name"> -->
-          <%= link_to pet.name, pet_path(pet), class: "pet-name" %>
-        <!-- </h3>   -->
+        <h3 class="pet-name">
+          <%= link_to pet.name, pet_path(pet) %>
+        </h3>  
       <!-- </span>   -->
     </pet>
   <% end %>
