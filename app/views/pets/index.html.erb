@@ -3,10 +3,10 @@
 <% if @pets %>
 <section class="pets-index">
   <% @pets.each do |pet| %>
-    <pet>   
+    <pet class="pet-container">   
       <!-- <span> -->
         <a class="" href="/pets/<%= pet.id %>">
-          <%= image_tag pet.avatar.url(:thumb), class: "pet-img"%>
+          <%= image_tag pet.avatar.url(:square), class: "pet-img"%>
         </a>     
       <!-- </span> -->
       <!-- <span> -->
