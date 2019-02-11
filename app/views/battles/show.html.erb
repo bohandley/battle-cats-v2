@@ -6,12 +6,6 @@
     </div>
     <div class="pet-show-card">
       <div class="top-part-of-card">
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-          Battle Instructions
-        </button>
-        <div class="buttons-div">
-        </div>
-
         <div >
           <img id="left-pet" class="avatar-img big-image" src=<%= @battle.pet_battles[0].pet.avatar.url(:square) %>>
           </div>
@@ -33,30 +27,6 @@
               </div>
             </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Battle Instructions:</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- <h2>Battle Instructions:</h2> -->
-        <p>Below the images, you will see the Start Button. After hitting the start button there will be a button that says "Click Me". You want to tap that button as fast as you can to get a high button score. Once the button disappears scroll to the top of the page and there will be a game over, click here button. This will take you back to your profile page while you wait for the other User to battle.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
