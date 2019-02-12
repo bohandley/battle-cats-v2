@@ -22,7 +22,6 @@
 				    	<%= link_to "Vote", "/pets/#{@pet.id}/votes", method: :put, remote: true, class: "vote-button disabled btn btn-success action-buttons" %>
 				    		<%= link_to "Battle #{@pet.name}", {controller: :battles, action: :new, :pet => @pet.id},  class: "disabled btn btn-warning action-buttons" %>
 				    	<% else %>
-
 				    		<% if not_voted_already?(@pet.id) %>
 				    			<%= link_to "Vote", "/pets/#{@pet.id}/votes", method: :put, remote: true, class: "vote-button btn btn-success action-buttons" %>
 				    		<% else %>
@@ -40,9 +39,14 @@
 
 		<h5 class="bio-header"><%= @pet.name %>'s Bio</h5>
 	    <p class="pet-show-card-bio"><%= @pet.bio %></p>
-
-	    <a href="/pets" class="btn btn-primary">Back to Map</a>
-
+	    
+	    <div>
+	    	<%= link_to "View All the Pets", pets_path, :class => "btn btn-primary" %>	
+	    </div>
+	    <div>
+	    	<%= link_to "Return to Your Profile", user_path(current_user), :class => "btn btn-primary" %>	
+	    </div>
+	    
 	    <h6><%= @pet.name %>'s Trophies</h6>
 	    <% if @pet.win_count >= 2 && @pet.win_count < 5 %>
 	    	<img src="https://storageforbattlecats.s3.amazonaws.com/public/giphy.gif" class="trophy-items">
