@@ -23,12 +23,23 @@
       <div>
         <%= button_to "Create A New Pet", new_user_pet_path(@user), method: :get, :class => "btn btn-primary btn-lg new-pet-button" %>  
       </div>
-      <ul class="list-group pet-list">
+      <!-- <ul class="list-group pet-list"> -->
       <h2>Your Pets:</h2>
-      <% @user.pets.each do |pet| %>
-        <li class="list-group-item list-group-item-action pet-list"><a href="/users/<%= @user.id %>/pets/<%= pet.id %>" ><%= pet.name %></a> | <%= link_to 'Delete Pet', pet, method: :delete, data: { confirm: 'Are you sure?'}  %> | <%= link_to 'Edit Pet',"/users/#{current_user.id}/pets/#{pet.id}/edit" %> </li>
-      <% end %>
-      </ul>
+      
+      <section class="pets-index">
+        <% @user.pets.each do |pet| %>
+          <pet class="pet-container">
+            <a class="" href="/pets/<%= pet.id %>">
+              <%= image_tag pet.avatar.url(:square), class: "pet-img"%>
+            </a>     
+            <h3 class="pet-name">
+              <p><%= link_to pet.name, pet_path(pet) %></p>
+              <%= link_to 'Edit',"/users/#{current_user.id}/pets/#{pet.id}/edit" %> | 
+              <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?'} %>
+            </h3>          
+          </pet>
+        <% end %>
+      </section>
     </div>
 
     <div class="incomplete-list stats-list tab-pane" id="incomplete-list">
