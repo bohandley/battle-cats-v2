@@ -1,28 +1,16 @@
 <h1 class="pet-index-header display-3 ">All Pets</h1>
 
 <% if @pets %>
-<section class="pets-index">
-  <% @pets.each do |pet| %>
-    <pet class="pet-container">   
-      <!-- <span> -->
+  <section class="pets-index">
+    <% @pets.each do |pet| %>
+      <pet class="pet-container">   
         <a class="" href="/pets/<%= pet.id %>">
           <%= image_tag pet.avatar.url(:square), class: "pet-img"%>
         </a>     
-      <!-- </span> -->
-      <!-- <span> -->
         <h3 class="pet-name">
           <%= link_to pet.name, pet_path(pet) %>
         </h3>  
-      <!-- </span>   -->
-    </pet>
-  <% end %>
-</section>
-<!--   <ul class="list-group pet-index-list box-shadow-div">
-    <% @pets.each do |pet| %>
-      <li class="list-group-item">
-       <span class="circular-landscape small-circle"><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb), class: "avatar-img"%></a></span>
-          <span> <%= link_to pet.name, pet_path(pet), class: "pet-index-pet-name h4" %> </span>
-        </li>
+      </pet>
     <% end %>
-  </ul> -->
- <% end %>
+  </section>
+<% end %>
