@@ -19,38 +19,11 @@
       <% else %>
         <a class="navbar-brand nav-header" href="/pets">BATTLE CATS V2</a>
       <% end %>
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <% if !logged_in? %>
-          <li class="nav-item">
-            <%= link_to "Register", new_user_path, :class => "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Log In", "/sessions/new", :class => "nav-link" %>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to "All Pets", pets_path, :class => "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "User Profile", user_path(current_user), :class => "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Logout", "/sessions", method: :delete, :class => "nav-link" %>
-          </li>
-          <% end %>
-        </ul>
-      </div> -->
     </nav>
-
 
   	<div class="container">
     	<%= yield %>
   	</div>
-
 
     <footer class="footer">
       <div class="nav-footer container">
