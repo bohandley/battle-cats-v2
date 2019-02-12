@@ -7,9 +7,9 @@
         <a class="" href="/pets/<%= pet.id %>">
           <%= image_tag pet.avatar.url(:square), class: "pet-img"%>
         </a>     
-        <h3 class="pet-name">
+        <p class="pet-name">
           <%= link_to pet.name, pet_path(pet) %>
-        </h3>  
+        </p>  
       </pet>
     <% end %>
   </section>

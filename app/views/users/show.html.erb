@@ -32,11 +32,11 @@
             <a class="" href="/pets/<%= pet.id %>">
               <%= image_tag pet.avatar.url(:square), class: "pet-img"%>
             </a>     
-            <h3 class="pet-name">
+            <div class="pet-name">
               <p><%= link_to pet.name, pet_path(pet) %></p>
               <%= link_to 'Edit',"/users/#{current_user.id}/pets/#{pet.id}/edit" %> | 
               <%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?'} %>
-            </h3>          
+            </div>          
           </pet>
         <% end %>
       </section>
