@@ -5,7 +5,7 @@
 
 
   <div class="card bg-light border-primary mb-3 box-shadow-div">
-  	<div class="card-header border-primary "><%= @pet.animal_type %></div>
+  	
 		<div class="pet-show-card">
 	 		<div class="top-part-of-card">
 				<div class="circular-landscape">
@@ -13,6 +13,7 @@
 			  	</div>
 			  	<div class="pet-show-card-body">
 				    <h3 class="pet-show-card-title"><%= @pet.name %></h3>
+				    <div class="card-header border-primary ">Animal Type: <%= @pet.animal_type %></div>
 					<div class="stats-div">
 					    <p class="show-card-c stats">Cuteness: <%= @pet.cuteness %></p>
 					    <p class="show-card-w stats">Wins: <%= @pet.win_count %></p>
