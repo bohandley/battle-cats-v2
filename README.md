@@ -1,6 +1,6 @@
 # Battle Cats v2
 
-Battle Cats is an interactive app for pet lovers who want to show off their pets and battle the cutest pets in their spare time. Users can vote on the cuteness of other pets and earn trophies over time as they win battles. Battlecats was originally created as a DevBootcamp final project but since it's creation, it's also become a great app for this developer to practice and implement new code.
+Battle Cats is an interactive app for pet lovers who want to show off their pets and battle with other pets. Users can vote on the cuteness of other pets and earn trophies over time as they win battles. Battlecats was originally created as a DevBootcamp final project but since it's creation, it's also become a great app for this developer to practice and implement new code.
 
 Play here! [https://battlecats-v2.herokuapp.com/](https://battlecats-v2.herokuapp.com/)
 Not interested in creating an account? Try out one of our test cats!
